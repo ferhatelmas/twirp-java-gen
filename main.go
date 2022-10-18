@@ -30,6 +30,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "error generating output: %s\n", err)
 		os.Exit(1)
 	}
+	g.Response.SupportedFeatures = proto.Uint64(uint64(plugin.CodeGeneratorResponse_FEATURE_PROTO3_OPTIONAL))
 
 	data, err = proto.Marshal(g.Response)
 	if err != nil {
